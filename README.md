@@ -39,24 +39,20 @@ Called - laraUID6 -- change details in .env
 
 ###### LIST OF ALL INVOICES
 :checkered_flag: ```[BROWSER URL - CHANGE PORT]``` 
-- <a href="http://127.0.0.1:8000/list">http://127.0.0.1:8000/list</a>
-
-
+- <a href="http://127.0.0.1:8000/create">http://127.0.0.1:8000/create</a>
 
 
 # ScreenShots
 
-###### ADMIN LOGIN
-<img src="https://raw.githubusercontent.com/DeanDevel/DevTests/main/2022/Propay/images/showtable.png" alt="create contact" width="300" height="150">
+###### CREATE INVOICE
+<img src="https://raw.githubusercontent.com/DeanDevel/D6Test/main/images/createinvoice.png" alt="create contact" width="300" height="150">
 
-###### ADMIN SHOWTABLE
-<img src="https://raw.githubusercontent.com/DeanDevel/DevTests/main/2022/Propay/images/admin.png" alt="create contact" width="300" height="150">
+###### VIEW INVOICE
+<img src="https://raw.githubusercontent.com/DeanDevel/D6Test/main/images/viewinvoice.png" alt="create contact" width="300" height="150">
 
-###### CONTACT FORM
-<img src="https://raw.githubusercontent.com/DeanDevel/DevTests/main/2022/Propay/images/contactform.png" alt="create contact" width="300" height="150">
+###### VIEW LIST
+<img src="https://raw.githubusercontent.com/DeanDevel/D6Test/main/images/viewlist.png" alt="create contact" width="300" height="150">
 
-###### MAILTRAP
-<img src="https://raw.githubusercontent.com/DeanDevel/DevTests/main/2022/Propay/images/mailtrap.png" alt="create contact" width="300" height="150">
 
 
 # Test Instructions
