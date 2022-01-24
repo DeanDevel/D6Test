@@ -1,10 +1,11 @@
 [//]: <> (// This is confusing, I KNOW, so let me explain it to you)
 # Laravel CRUD application
 A web-based system where a user for capture invoices
+* not an ORM "important"
 * production code test
 * input validation/error handling is important
 * Part of Bigger System
-* Scalable
+* Scalable = ""could also do Vue UI -> connect -> API laravel ==> result -> even bigger""
 * not need to implement authentication 
 
 
@@ -28,9 +29,18 @@ Called - laraUID6 -- change details in .env
 [//]: <> (// npm install)
 [//]: <> (// npm run dev)
 
-###### SHOW ME START DASHBOARD OF INVOICES
+###### LETS CREATE AN INVOICE
+:checkered_flag: ```[BROWSER URL - CHANGE PORT]``` 
+- <a href="http://127.0.0.1:8000/create">http://127.0.0.1:8000/create</a>
+
+###### REDIRECT TO VIEW AN EXISTING INVOICE
+:checkered_flag: ```[BROWSER URL - CHANGE PORT]``` 
+- <a href="http://127.0.0.1:8000/showinvoice">http://127.0.0.1:8000/showinvoice</a>
+
+###### LIST OF ALL INVOICES
 :checkered_flag: ```[BROWSER URL - CHANGE PORT]``` 
 - <a href="http://127.0.0.1:8000/list">http://127.0.0.1:8000/list</a>
+
 
 
 

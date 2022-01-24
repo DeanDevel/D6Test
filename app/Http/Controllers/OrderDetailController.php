@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Mail;
 use DB;
+use App\Models\Orderdetail;
 
 class OrderDetailController extends Controller
 {
@@ -12,10 +13,18 @@ class OrderDetailController extends Controller
   public function showlist() {
    
     $resultslist = \DB::select('SELECT * from orderdetails');
-    //dd($resultslist); // 1
+    //dd($resultslist);
     return view('invoicelist',['resultslist'=>$resultslist]);
 
-  }
+  } 
+  
+  public function showinvoice($id) {
+   
+    $invoicelist = \DB::select('SELECT * from orderdetails WHERE order_id = ?', [$id]);
+    //dd($resultslist);
+    return view('viewinvoice',['invoicelist'=>$invoicelist]);
+
+  } 
   
   public function destroy($id) 
   {
@@ -24,16 +33,21 @@ class OrderDetailController extends Controller
 
      ///delete all multiple items for this order also
 
-     return redirect()->back();
+    return back()->with('success', 'Invoice has been deleted');
   }
 
+  public function storeinvoice(Request $request) {
 
-
-  public function storeinvoice(Request $request) 
-  {
-      $this->validate($request, [ 
-              'companyName' => 'required'
-           ]);
+      $request->validate([
+        'companyName'=>'required',
+        'address'=>'required',
+        'subTotal'=>'required',
+        'taxRate'=>'required',
+        'taxAmount'=>'required',
+        'totalAftertax'=>'required',
+        'amountPaid'=>'required',
+        'amountDue'=>'required'
+        ]);
 
      //multiple items for other database
      $productCode = json_encode($request->get('productCode'));
@@ -46,15 +60,7 @@ class OrderDetailController extends Controller
       $test = DB::insert("INSERT INTO `orderdetails` (`order_id`, `company_id`, `order_receiver_name`, `order_receiver_address`, `order_total_before_tax`, `order_total_tax`, `order_tax_per`, `order_total_after_tax`, `order_amount_paid`, `order_total_amount_due`, `order_date`, `note`, `productCode`, `productName`, `quantity`, `price`, `total`, `created_at`, `updated_at`) VALUES (NULL, '".$request->get('companyid')."', '".$request->get('companyName')."', '".$request->get('address')."', '".$request->get('subTotal')."', '".$request->get('taxAmount')."', '".$request->get('taxRate')."', '".$request->get('totalAftertax')."', '".$request->get('amountPaid')."', '".$request->get('amountDue')."', '".Carbon::now()."', '".$request->get('notes')."', '".$productCode."', '".$productName."', '".$quantity."', '".$price."', '".$total."', '".Carbon::now()."', '".Carbon::now()."');");
       
       //dd($test);
-
-
-
-     
-     
-     
-     
-
-      //return back()->with('success', 'Thanks for creating the invoice!');
+      return back()->with('success', 'Thanks for creating the invoice!');
   
   }
 

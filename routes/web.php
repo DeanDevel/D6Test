@@ -19,18 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create', function () { 
-    return view('createinvoice'); 
-})->name('create');
-
-
-
-
 /* DATA ROUTES */
 Route::get('/list', [App\Http\Controllers\OrderDetailController::class, 'showlist'])->name('list');
 Route::get('/delete/{id}', [App\Http\Controllers\OrderDetailController::class, 'destroy'])->name('delete');
 Route::post('/storeinvoice', [App\Http\Controllers\OrderDetailController::class, 'storeinvoice'])->name('storeinvoice');
-
+Route::get('/create', [App\Http\Controllers\CompanyDetailsController::class, 'showcompanydetails'])->name('create');
+Route::get('/showinvoice/{id}', [App\Http\Controllers\OrderDetailController::class, 'showinvoice'])->name('showinvoice');
 
 
 /* AUTHENTICATION VIEWS */

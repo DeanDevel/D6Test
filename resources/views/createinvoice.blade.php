@@ -14,35 +14,41 @@
     </div>
 @endif
 
+
+
    <div class="cards">
      <div class="card-bodys">
        <form  action="{{ route('storeinvoice') }}" id="invoice-form" method="post" class="invoice-form" role="form">
        @csrf
-      <div class="load-animate animated fadeInUp">
+      <div class="">
          <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>From,</h3>
-               company information goes here
-            <?php
-            /*
-               $invoiceCompanyDetails = $invoice->getCompanyDetails();
-               foreach($invoiceCompanyDetails as $individualdetails){
-                  echo $individualdetails["companyname"].'<br>';
-                  echo $individualdetails["address"].'<br>';
-                  echo $individualdetails["mobile"].'<br>';
-                  echo $individualdetails["email"].'<br>';
-               }
-               */
-            ?>
+               @foreach($resultscompanyid as $datalist)
+                     {{ $datalist->companyname}}<br />
+                     {{ $datalist->address}}<br />
+                     {{ $datalist->phone}}<br />
+                     {{ $datalist->email}}<br />
+                  @endforeach
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>To,</h3>
                <div class="form-group">
-                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off" required>
-                  <input type="text" class="form-control" name="companyName" id="companyid" value="1">
+                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
+                  @if ($errors->has('companyName'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('companyName') }}
+                     </div>
+                  @endif
+                  <input type="hidden" class="form-control" name="companyid" id="companyid" value="1">
                </div>
                <div class="form-group">
                   <textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
+                  @if ($errors->has('address'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('address') }}
+                     </div>
+                  @endif
                </div>
             </div>
          </div>
@@ -92,7 +98,14 @@
             </div>
             <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
           </div>
-              </div>
+               <div>
+               @if ($errors->has('subTotal'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('subTotal') }}
+                     </div>
+                  @endif
+               </div>
+         </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
@@ -103,7 +116,14 @@
             </div>
            <input value="" type="number" class="form-control" name="taxRate" id="taxRate" placeholder="Tax Rate">
           </div>
-              </div>
+               <div>
+               @if ($errors->has('taxRate'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('taxRate') }}
+                     </div>
+                  @endif
+               </div>
+         </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
@@ -114,7 +134,15 @@
             </div>
             <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
           </div>
-              </div>
+               <div>
+               @if ($errors->has('taxAmount'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('taxAmount') }}
+                     </div>
+                  @endif
+               </div>
+
+         </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
@@ -124,8 +152,17 @@
               <span class="input-group-text currency">R</span>
             </div>
              <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+
           </div>
-              </div>
+               <div>
+               @if ($errors->has('totalAftertax'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('totalAftertax') }}
+                     </div>
+                  @endif
+               </div>
+
+         </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
@@ -135,6 +172,14 @@
               <span class="input-group-text currency">R</span>
             </div>
             <input value="" type="number" class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
+
+          </div>
+          <div>
+          @if ($errors->has('amountPaid'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('amountPaid') }}
+                     </div>
+                  @endif
           </div>
               </div>
           </div>
@@ -147,6 +192,15 @@
             </div>
              <input value="" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
           </div>
+               <div>
+               @if ($errors->has('amountDue'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('amountDue') }}
+                     </div>
+                  @endif
+               </div>
+
+
               </div>
           </div>
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
