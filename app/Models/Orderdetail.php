@@ -10,8 +10,13 @@ class Orderdetail extends Model
     use HasFactory;
 
     protected $fillable = [
+        'toPersonName',
         'companyName',
         'address',
+        'companyCity',
+        'companyProvince',
+        'companyPostalcode',
+        'companyPhone',
         'subTotal',
         'taxRate',
         'taxAmount',

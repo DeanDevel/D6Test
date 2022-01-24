@@ -5,7 +5,7 @@ A web-based system where a user for capture invoices
 * production code test
 * input validation/error handling is important
 * Part of Bigger System
-* Scalable = ""could also do Vue UI -> connect -> API laravel ==> result -> even bigger""
+* Scalable = ""could also do Vue UI -> axios connect -> API laravel ==> Postman result -> even bigger""
 * not need to implement authentication 
 
 

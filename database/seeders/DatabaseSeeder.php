@@ -19,20 +19,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Companydetail::create([
-            'companyname' => 'CompLara',
-            'address' => '15 city street',
-            'city' => 'Cape Town',
-            'email' => 'company@test.com',
-            'phone' => '0123456789',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
         Orderdetail::create([
-            'company_id' => '1',
+            'order_receiver_personname' => 'Jane Doe',
             'order_receiver_name' => 'Demo Company',
             'order_receiver_address' => '225 Demo Address',
+            'order_receiver_city' => 'Miami',
+            'order_receiver_province' => 'Western Cape',
+            'order_receiver_postalcode' => '8000',
+            'order_receiver_phone' => '0674451241',
             'order_total_before_tax' => '2839',
             'order_total_tax' => '142.52',
             'order_tax_per' => '7',
@@ -51,9 +45,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Orderdetail::create([
-            'company_id' => '1',
+            'order_receiver_personname' => 'John Doe',
             'order_receiver_name' => 'Atsupplies',
             'order_receiver_address' => '323 Posum Point Road',
+            'order_receiver_city' => 'Florida',
+            'order_receiver_province' => 'Eastern Cape',
+            'order_receiver_postalcode' => '5200',
+            'order_receiver_phone' => '0679865241',
             'order_total_before_tax' => '1036',
             'order_total_tax' => '15.0',
             'order_tax_per' => '8',

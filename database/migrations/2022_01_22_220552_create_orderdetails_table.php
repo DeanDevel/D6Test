@@ -14,10 +14,14 @@ class CreateOrderdetailsTable extends Migration
     public function up()
     {
         Schema::create('orderdetails', function (Blueprint $table) {
-            $table->increments('order_id');
-            $table->string('company_id');
+            $table->increments('order_id');  
+            $table->string('order_receiver_personname');
             $table->string('order_receiver_name');
             $table->string('order_receiver_address');
+            $table->string('order_receiver_city');
+            $table->string('order_receiver_province');
+            $table->string('order_receiver_postalcode');
+            $table->string('order_receiver_phone');
             $table->string('order_total_before_tax');
             $table->string('order_total_tax');
             $table->string('order_tax_per');

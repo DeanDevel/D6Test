@@ -4,6 +4,8 @@
 @endsection
 
 @include('layouts.menu')
+<hr />
+
 
 <div class="container content-invoice">
 
@@ -23,16 +25,29 @@
       <div class="">
          <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-               <h3>From,</h3>
-               @foreach($resultscompanyid as $datalist)
-                     {{ $datalist->companyname}}<br />
-                     {{ $datalist->address}}<br />
-                     {{ $datalist->phone}}<br />
-                     {{ $datalist->email}}<br />
-                  @endforeach
+                 <h3>CompLara</h3><br />
+               <b>Address:</b> 15 City street<br /> 
+                  Cape Town, Western Cape<br />
+                  8000<br />
+                  <b>Email:</b> company@test.com<br />
+                  <b>Tel:</b> 0123456789<br />
+                  <b>Website:</b> www.somesite.com<br />
+                  <br />
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>To,</h3>
+
+
+               <div class="form-group">
+                  <input type="text" class="form-control" name="toPersonName" id="toPersonName" placeholder="To Person Name" autocomplete="off">
+                  @if ($errors->has('toPersonName'))
+                     <div class="alert alert-danger">
+                        {{ $errors->first('toPersonName') }}
+                     </div>
+                  @endif
+               </div>
+
+
                <div class="form-group">
                   <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
                   @if ($errors->has('companyName'))
@@ -40,10 +55,9 @@
                         {{ $errors->first('companyName') }}
                      </div>
                   @endif
-                  <input type="hidden" class="form-control" name="companyid" id="companyid" value="1">
                </div>
                <div class="form-group">
-                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
+                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Company Address"></textarea>
                   @if ($errors->has('address'))
                      <div class="alert alert-danger">
                         {{ $errors->first('address') }}
@@ -52,6 +66,79 @@
                </div>
             </div>
          </div>
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     
+         <div class="form-group">
+            <input type="text" class="form-control" name="companyCity" id="companyCity" placeholder="Company City" autocomplete="off">
+            @if ($errors->has('companyCity'))
+               <div class="alert alert-danger">
+                  {{ $errors->first('companyCity') }}
+               </div>
+            @endif
+         </div>
+
+    </div>
+    <div class="col-sm">
+     
+         <div class="form-group">
+            <input type="text" class="form-control" name="companyProvince" id="companyProvince" placeholder="Company Province" autocomplete="off">
+            @if ($errors->has('companyProvince'))
+               <div class="alert alert-danger">
+                  {{ $errors->first('companyProvince') }}
+               </div>
+            @endif
+         </div>
+
+    </div>
+
+    <div class="col-sm">
+     
+         <div class="form-group">
+            <input type="text" class="form-control" name="companyPostalcode" id="companyPostalcode" placeholder="Company Postalcode" autocomplete="off">
+            @if ($errors->has('companyPostalcode'))
+               <div class="alert alert-danger">
+                  {{ $errors->first('companyPostalcode') }}
+               </div>
+            @endif
+         </div>
+
+    </div>
+
+    <div class="col-sm">
+     
+         <div class="form-group">
+            <input type="text" class="form-control" name="companyPhone" id="companyPhone" placeholder="Company Phone" autocomplete="off">
+            @if ($errors->has('companyPhone'))
+               <div class="alert alert-danger">
+                  {{ $errors->first('companyPhone') }}
+               </div>
+            @endif
+         </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <table class="table table-condensed table-striped" id="invoiceItem">
